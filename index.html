@@ -12,6 +12,7 @@
             justify-content: center; /* Horizontally center content */
             font-family: "Comic Sans MS", cursive, sans-serif;
             background: linear-gradient(Red, Orange, Yellow, Green, Blue, Indigo, Violet);
+            overflow: hidden; /* Prevent scrolling */
         }
 
         .container {
@@ -88,32 +89,31 @@
             animation: star-fade 2s ease-out;
         }
 
-        /* Style for image layers */
+        /* Style for image layer */
         .image-layer {
             position: absolute;
-            width: 20%; /* Adjust the width as needed (20% smaller) */
-            height: 20%; /* Adjust the height as needed (20% smaller) */
-            top: 30%; /* Vertically center the image */
-            z-index: 1; /* Place images behind the text and button */
+            width: 100%; /* Occupy the entire viewport width */
+            height: 100%; /* Occupy the entire viewport height */
+            background-size: contain; /* Adjust the image size */
+            background-repeat: no-repeat; /* Prevent image repetition */
+            z-index: 1; /* Place the image layer behind the text and button */
         }
 
-        .image-left {
-            left: 0;
+        .left-image {
+            background-image: url('j3.png');
+            background-position: left top;
         }
 
-        .image-right {
-            right: 0;
+        .right-image {
+            background-image: url('j4.png');
+            background-position: right top;
         }
     </style>
 </head>
 <body>
     <!-- Image layers -->
-    <div class="image-layer image-left">
-        <img src="j3.png" alt="Left Image" width="400" height="800">
-    </div>
-    <div class="image-layer image-right">
-        <img src="j4.png" alt="Right Image" width="400" height="800">
-    </div>
+    <div class="image-layer left-image"></div>
+    <div class="image-layer right-image"></div>
 
     <div class="container">
         <h1>Happy Birthday John!!!</h1>
