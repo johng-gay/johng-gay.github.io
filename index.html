@@ -94,32 +94,32 @@
         /* Style for image layer */
         .image-layer {
             position: absolute;
-            width: 100vw;
-            height: 100vh;
-            background-size: contain;
+            top: 0;
+            bottom: 0;
+            background-size: auto 100%; /* Cover the full screen height */
             background-repeat: no-repeat;
             z-index: 1;
         }
 
         .left-image {
             background-image: url('j3.png');
-            background-position: left top;
+            background-position: left center; /* Center vertically */
+            left: 0;
+            right: 50%; /* Half of the screen */
         }
 
         .right-image {
             background-image: url('j4.png');
-            background-position: right top;
+            background-position: right center; /* Center vertically */
+            right: 0;
+            left: 50%; /* Half of the screen */
         }
 
         @media screen and (max-width: 768px) {
             .left-image, .right-image {
-                transform: scale(0.2);
-            }
-            .left-image {
-                left: -80%; /* Adjusted for 20% scaling */
-            }
-            .right-image {
-                right: -80%; /* Adjusted for 20% scaling */
+                background-size: auto 20%; /* The height of the image is set to 20% of its original size, and the width scales accordingly */
+                top: 40%; /* Centering the images vertically */
+                bottom: 40%;
             }
         }
         
