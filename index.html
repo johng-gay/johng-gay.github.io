@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +9,6 @@
         html, body {
             height: 100%;
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-family: "Comic Sans MS", cursive, sans-serif;
             background: linear-gradient(Red, Orange, Yellow, Green, Blue, Indigo, Violet);
         }
@@ -20,7 +19,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
+            height: 100%;
         }
 
         h1 {
@@ -47,6 +46,37 @@
             .container .message {
                 font-size: 2em; /* Adjust the font size for .message on mobile screens */
             }
+
+            .images {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1em;
+            }
+
+            .image {
+                width: 25%; /* Adjust image size for mobile screens */
+                height: auto;
+                margin: 0.5em;
+            }
+        }
+
+        /* Layout adjustment for desktop screens */
+        @media screen and (min-width: 769px) {
+            .images {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 80%; /* Adjust the width for desktop screens */
+                margin: 0 auto; /* Center the images horizontally */
+                margin-top: 1em;
+            }
+
+            .image {
+                width: 15%; /* Adjust image size for desktop screens */
+                height: auto;
+            }
         }
 
         #TheButton {
@@ -57,12 +87,6 @@
             color: black;
             border: black;
             border-radius: 5px;
-            position: fixed;
-            align-items: center;
-            justify-content: center;
-            left: 50%;
-            Top: 60%;
-            transform: translate(-50%, -50%);
         }
 
         .message {
@@ -71,10 +95,6 @@
             text-align: center;
             margin-top: 1em;
             display: none;
-            position: fixed;
-            left: 50%;
-            top: 60%;
-            transform: translate(-50%, -50%);
         }
 
         /* Define the star animation */
@@ -94,47 +114,17 @@
             opacity: 0;
             animation: star-fade 2s ease-out;
         }
-
-        /* Styles for left image */
-        .left-image {
-            width: 50%; /* Adjust the width as needed */
-            height: 80vh; /* Adjust the height for desktop screens */
-            object-fit: cover; /* Ensure the image covers the container */
-            object-position: left top; /* Position the image on the left */
-        }
-
-        /* Styles for right image */
-        .right-image {
-            width: 50%; /* Adjust the width as needed */
-            height: 80vh; /* Adjust the height for desktop screens */
-            object-fit: cover; /* Ensure the image covers the container */
-            object-position: right top; /* Position the image on the right */
-        }
-
-        /* Mobile styles */
-        @media screen and (max-width: 768px) {
-            /* Styles for left image on mobile */
-            .left-image {
-                width: 100%; /* Full width on mobile */
-                height: 25vh; /* Adjust the height for mobile screens */
-                object-position: center top; /* Center the image vertically */
-            }
-
-            /* Styles for right image on mobile */
-            .right-image {
-                width: 100%; /* Full width on mobile */
-                height: 25vh; /* Adjust the height for mobile screens */
-                object-position: center bottom; /* Center the image vertically */
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="j3.png" alt="Left Image" class="left-image">
         <h1>Happy Birthday John!!!</h1>
-        <h2>press the button on hooray</h2>
-        <img src="j4.png" alt="Right Image" class="right-image">
+        <h2>Press the button to celebrate</h2>
+    </div>
+
+    <div class="images">
+        <img class="image" src="j3.png" alt="Left Image">
+        <img class="image" src="j4.png" alt="Right Image">
     </div>
 
     <button id="TheButton">Hooray!</button>
