@@ -154,7 +154,11 @@
                 button.style.left = `${Math.random() * 80 + 10}%`;  // between 10% to 90% of screen width
                 button.style.top = `${Math.random() * 80 + 10}%`;   // between 10% to 90% of screen height
             }, 150);
-            createStar();
+
+            // Spawn 100 stars
+            for(let i = 0; i < 100; i++) {
+                createStar();
+            }
 
             if (messageIndex >= messages.length) {
                 messageIndex = 0;
