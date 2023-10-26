@@ -82,7 +82,20 @@
             100% { opacity: 0; transform: scale(0); }
         }
 
+
         .star {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid #FDD700;
+            clip-path: polygon(50% 0%, 61.8% 38.2%, 100% 45.2%, 70.9% 70.9%, 79.1% 100%, 50% 81.8%, 20.9% 100%, 29.1% 70.9%, 0% 45.2%, 38.2% 38.2%);
+            opacity: 0;
+            animation: star-fade 2s ease-out;
+        }
+
+      /*  .star {
             position: absolute;
             width: 10px;
             height: 10px;
@@ -90,7 +103,7 @@
             border-radius: 50%;
             opacity: 0;
             animation: star-fade 2s ease-out;
-        }
+        }*/
     </style>
 </head>
 <body>
@@ -134,7 +147,7 @@
             message.style.display = "block";
 
             // Create stars and add them to the star container
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 100; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.left = Math.random() * window.innerWidth + 'px';
