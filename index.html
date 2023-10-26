@@ -94,8 +94,8 @@
         /* Style for image layer */
         .image-layer {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 1;
@@ -112,14 +112,14 @@
         }
 
         @media screen and (max-width: 768px) {
-            .left-image {
-                background-size: 20%;
-                background-position: 5% 0; /* Adjusted to match the reduction in size */
+            .left-image, .right-image {
+                transform: scale(0.2);
             }
-
+            .left-image {
+                left: -80%; /* Adjusted for 20% scaling */
+            }
             .right-image {
-                background-size: 20%;
-                background-position: 95% 0; /* Adjusted to match the reduction in size */
+                right: -80%; /* Adjusted for 20% scaling */
             }
         }
         
