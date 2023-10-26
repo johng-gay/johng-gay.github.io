@@ -165,6 +165,7 @@
                 }, 1000);
             }
 
+            // Reposition the button randomly without going back to the center
             const x = Math.random() * (window.innerWidth - button.clientWidth);
             const y = Math.random() * (window.innerHeight - button.clientHeight);
             button.style.left = `${x}px`;
