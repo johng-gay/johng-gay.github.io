@@ -20,6 +20,8 @@
             flex-direction: column;
             align-items: center; /* Vertically center content */
             justify-content: center; /* Horizontally center content */
+            position: relative; /* Added for z-index */
+            z-index: 2; /* Added for z-index */
         }
 
         h1 {
@@ -56,6 +58,8 @@
             color: black;
             border: black;
             border-radius: 5px;
+            position: relative; /* Added for z-index */
+            z-index: 2; /* Added for z-index */
         }
 
         .message {
@@ -90,6 +94,7 @@
             width: 50%; /* Adjust the width as needed */
             height: 50%; /* Adjust the height as needed */
             top: 25%; /* Vertically center the image */
+            z-index: 1; /* Place images behind the text and button */
         }
 
         .image-left {
