@@ -20,6 +20,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         h1 {
@@ -47,23 +48,6 @@
                 font-size: 2em; /* Adjust the font size for .message on mobile screens */
             }
         }
-
-/*
-         Font size adjustment for mobile screens
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 4em; /* Adjust the font size for h1 on mobile screens *
-            }
-
-            h2 {
-                font-size: 2em; /* Adjust the font size for h2 on mobile screens *
-            }
-
-            .message {
-                font-size: 2em;
-            }
-        }
-        */
 
         #TheButton {
             padding: 10px 20px;
@@ -111,21 +95,46 @@
             animation: star-fade 2s ease-out;
         }
 
-      /*  .star {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #FDD700;
-            border-radius: 50%;
-            opacity: 0;
-            animation: star-fade 2s ease-out;
-        }*/
+        /* Styles for left image */
+        .left-image {
+            width: 50%; /* Adjust the width as needed */
+            height: 80vh; /* Adjust the height for desktop screens */
+            object-fit: cover; /* Ensure the image covers the container */
+            object-position: left top; /* Position the image on the left */
+        }
+
+        /* Styles for right image */
+        .right-image {
+            width: 50%; /* Adjust the width as needed */
+            height: 80vh; /* Adjust the height for desktop screens */
+            object-fit: cover; /* Ensure the image covers the container */
+            object-position: right top; /* Position the image on the right */
+        }
+
+        /* Mobile styles */
+        @media screen and (max-width: 768px) {
+            /* Styles for left image on mobile */
+            .left-image {
+                width: 100%; /* Full width on mobile */
+                height: 25vh; /* Adjust the height for mobile screens */
+                object-position: center top; /* Center the image vertically */
+            }
+
+            /* Styles for right image on mobile */
+            .right-image {
+                width: 100%; /* Full width on mobile */
+                height: 25vh; /* Adjust the height for mobile screens */
+                object-position: center bottom; /* Center the image vertically */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="j3.png" alt="Left Image" class="left-image">
         <h1>Happy Birthday John!!!</h1>
         <h2>press the button on hooray</h2>
+        <img src="j4.png" alt="Right Image" class="right-image">
     </div>
 
     <button id="TheButton">Hooray!</button>
