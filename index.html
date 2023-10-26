@@ -36,15 +36,15 @@
         /* Font size adjustment for mobile screens */
         @media screen and (max-width: 768px) {
             h1 {
-                font-size: 48px; /* Adjust the font size for h1 on mobile screens */
+                font-size: 4em; /* Adjust the font size for h1 on mobile screens */
             }
 
             h2 {
-                font-size: 32px; /* Adjust the font size for h2 on mobile screens */
+                font-size: 2em; /* Adjust the font size for h2 on mobile screens */
             }
 
             .message {
-                font-size: 32px;
+                font-size: 2em;
             }
         }
 
@@ -75,6 +75,22 @@
             top: 60%;
             transform: translate(-50%, -50%);
         }
+
+        /* Define the star animation */
+        @keyframes star-fade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: star-fade 1s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -86,9 +102,13 @@
     <button id="TheButton">Learn More</button>
     <p class="message">you don't want to know</p>
 
+    <!-- Star container -->
+    <div id="star-container"></div>
+
     <script>
         const button = document.getElementById('TheButton');
         const message = document.querySelector('.message');
+        const starContainer = document.getElementById('star-container');
         const messages = [
             "you don't want to know",
             "you really don't want to know",
@@ -112,6 +132,19 @@
             index = (index + 1) % messages.length;
             message.textContent = messages[index];
             message.style.display = "block";
+
+            // Create stars and add them to the star container
+            for (let i = 0; i < 10; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * window.innerWidth + 'px';
+                star.style.top = Math.random() * window.innerHeight + 'px';
+                starContainer.appendChild(star);
+                setTimeout(() => {
+                    star.remove();
+                }, 1000);
+            }
+
             const x = Math.random() * (window.innerWidth - button.clientWidth);
             const y = Math.random() * (window.innerHeight - button.clientHeight);
             button.style.left = `${x}px`;
