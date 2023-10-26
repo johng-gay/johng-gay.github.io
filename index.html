@@ -60,7 +60,7 @@
             align-items: center;
             justify-content: center;
             left: 50%;
-            top: 60%;
+            Top: 60%;
             transform: translate(-50%, -50%);
         }
 
@@ -79,17 +79,17 @@
         /* Define the star animation */
         @keyframes star-fade {
             0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(10); }
+            100% { opacity: 0; transform: scale(0); }
         }
 
         .star {
             position: absolute;
-            width: 40px; /* 10 times bigger than the original size */
-            height: 40px; /* 10 times bigger than the original size */
-            background-color: white;
+            width: 10px;
+            height: 10px;
+            background-color: #FDD700;
             border-radius: 50%;
             opacity: 0;
-            animation: star-fade 1s ease-out;
+            animation: star-fade 2s ease-out;
         }
     </style>
 </head>
@@ -134,7 +134,7 @@
             message.style.display = "block";
 
             // Create stars and add them to the star container
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 50; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.left = Math.random() * window.innerWidth + 'px';
@@ -145,6 +145,10 @@
                 }, 1000);
             }
 
+            const x = Math.random() * (window.innerWidth - button.clientWidth);
+            const y = Math.random() * (window.innerHeight - button.clientHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
             button.style.transform = 'none';
         });
     </script>
