@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>johng.gay</title>
     <style>
+        /* Common styles for all screen sizes */
         html, body {
             height: 100%;
             margin: 0;
@@ -31,6 +31,17 @@
             margin-top: 0.5em;
             font-size: 1.25em;
             color: black;
+        }
+
+        /* Font size adjustment for mobile screens */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Adjust the font size for h1 on mobile screens */
+            }
+
+            h2 {
+                font-size: 1em; /* Adjust the font size for h2 on mobile screens */
+            }
         }
 
         #TheButton {
@@ -66,18 +77,19 @@
     <div class="container">
         <h1>johng.gay?</h1>
         <h2>Find out more...</h2>
-      </div>
+    </div>
 
-      <button id="TheButton">Learn More</button>
-      <p class="message">you don't wat to know</p>
+    <button id="TheButton">Learn More</button>
+    <p class="message">you don't want to know</p>
 
-      <script>
-          const button = document.getElementById('TheButton');
-          const message = document.querySelector('.message');
-          const messages = [
-            "you don't wat to know",
-            "you really don't wat to know",
-            "stop trying", "it's not safe",
+    <script>
+        const button = document.getElementById('TheButton');
+        const message = document.querySelector('.message');
+        const messages = [
+            "you don't want to know",
+            "you really don't want to know",
+            "stop trying",
+            "it's not safe",
             "some information is best kept hidden",
             "go away!",
             "still going",
@@ -88,19 +100,20 @@
             "please",
             "stop",
             "nope? still here?",
-            "like I said.."];
-          let index = 0;
+            "like I said.."
+        ];
+        let index = 0;
 
-          button.addEventListener('click', () => {
-              index = (index + 1) % messages.length;
-              message.textContent = messages[index];
-              message.style.display = "block"
-              const x = Math.random() * (window.innerWidth - button.clientWidth);
-              const y = Math.random() * (window.innerHeight - button.clientHeight);
-              button.style.left = `${x}px`;
-              button.style.top = `${y}px`;
-              button.style.transform = 'none';
-          });
-      </script>
+        button.addEventListener('click', () => {
+            index = (index + 1) % messages.length;
+            message.textContent = messages[index];
+            message.style.display = "block";
+            const x = Math.random() * (window.innerWidth - button.clientWidth);
+            const y = Math.random() * (window.innerHeight - button.clientHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+            button.style.transform = 'none';
+        });
+    </script>
 </body>
 </html>
