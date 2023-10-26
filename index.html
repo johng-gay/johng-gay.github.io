@@ -4,6 +4,7 @@
 <head>
     <title>JohnG.gay</title>
     <style>
+        /* Combined CSS from both codes */
         html, body {
             height: 100%;
             margin: 0;
@@ -21,6 +22,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative; /* Added for z-index */
+            z-index: 2; /* Added for z-index */
         }
 
         h1 {
@@ -73,6 +76,7 @@
             left: 50%;
             top: 60%;
             transform: translate(-50%, -50%);
+            z-index: 2; /* Added for z-index */
         }
 
         .message {
@@ -86,11 +90,34 @@
             top: 60%;
             transform: translate(-50%, -50%);
         }
+
+        /* Style for image layer */
+        .image-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .left-image {
+            background-image: url('j3.png');
+            background-position: left top;
+        }
+
+        .right-image {
+            background-image: url('j4.png');
+            background-position: right top;
+        }
     </style>
 </head>
 
 <body>
-    <div id="star-container"></div>
+    <!-- Image layers -->
+    <div class="image-layer left-image"></div>
+    <div class="image-layer right-image"></div>
+
     <div class="container">
         <h1>Happy Birthday John!!!</h1>
         <h2>press the button on hooray</h2>
@@ -98,6 +125,9 @@
 
     <button id="TheButton">Hooray!</button>
     <p class="message">yew</p>
+
+    <!-- Star container -->
+    <div id="star-container"></div>
 
     <script>
         const button = document.getElementById('TheButton');
@@ -111,34 +141,32 @@
             "its about to go back to the start", "that will make me look silly",
             "please. stop.", "alrighty then", "back to the start..."
         ];
-        let index = 0;
+        let messageIndex = 0;
+        let initialTop = 70;
 
-        button.addEventListener('click', () => {
-            if (index < messages.length - 1) {
-                index++;
-            } else {
-                index = 0;
+        button.addEventListener('click', function() {
+            button.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            setTimeout(() => button.style.transform = 'translate(-50%, -50%) scale(1)', 150);
+            createStar();
+
+            if (messageIndex >= messages.length) {
+                messageIndex = 0;
             }
-            message.textContent = messages[index];
-            message.style.display = "block";
-
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * window.innerWidth + 'px';
-                star.style.top = Math.random() * window.innerHeight + 'px';
-                starContainer.appendChild(star);
-                setTimeout(() => {
-                    star.remove();
-                }, 2000);  // Increase time to 2 seconds to ensure the animation completes.
-            }
-
-            const x = Math.random() * (window.innerWidth - button.clientWidth);
-            const y = Math.random() * (window.innerHeight - button.clientHeight);
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
-            button.style.transform = 'none';  // Reset transform property.
+            message.textContent = messages[messageIndex++];
+            message.style.display = 'block';
         });
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            starContainer.appendChild(star);
+
+            setTimeout(() => {
+                starContainer.removeChild(star);
+            }, 2000);
+        }
     </script>
 </body>
 
