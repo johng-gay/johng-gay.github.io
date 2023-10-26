@@ -174,6 +174,15 @@
             const y = Math.random() * (window.innerHeight - button.clientHeight);
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
+
+            // Reset button position after 2 seconds
+            setTimeout(() => {
+                button.style.transition = 'none'; // Disable transition for instant reset
+                button.style.transform = 'none';
+                setTimeout(() => {
+                    button.style.transition = ''; // Re-enable transition
+                });
+            }, 2000);
         });
     </script>
 </body>
