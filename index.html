@@ -153,8 +153,10 @@
         let index = 0;
 
         function randomizeButtonPosition() {
-            const x = Math.random() * (window.innerWidth - button.clientWidth);
-            const y = Math.random() * (window.innerHeight - button.clientHeight);
+            const maxX = window.innerWidth - button.clientWidth;
+            const maxY = window.innerHeight - button.clientHeight;
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
         }
