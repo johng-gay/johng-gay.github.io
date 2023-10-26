@@ -130,26 +130,34 @@
         const message = document.querySelector('.message');
         const starContainer = document.getElementById('star-container');
         const messages = [
-            "you don't want to know",
-            "you really don't want to know",
-            "stop trying",
-            "it's not safe",
-            "some information is best kept hidden",
-            "go away!",
-            "still going",
-            "why are we here",
-            "save us and stop",
-            "oi!",
-            "please stop",
-            "please",
-            "stop",
-            "nope? still here?",
-            "like I said.."
+          "yew",
+          "again",
+          "and again",
+          "happy birthday crypto king",
+          "may the charts keep rising",
+          "and the CARAS crypto fund drpping...",
+          "thanks Alex",
+          "but...",
+          "happy birthday John",
+          "still here?",
+          "why",
+          "please stop pressing the button",
+          "why are we here",
+          "stop please",
+          "its about to go back to the start",
+          "that will make me look silly",
+          "please. stop.",
+          "alrighty then",
+          "back to the start..."
         ];
         let index = 0;
 
         button.addEventListener('click', () => {
-            index = (index + 1) % messages.length;
+            if (index < messages.length - 1) {
+                index++;
+            } else {
+                index = 0;
+            }
             message.textContent = messages[index];
             message.style.display = "block";
 
@@ -165,12 +173,11 @@
                 }, 1000);
             }
 
-            // Reposition the button randomly without going back to the center
+            // Reposition the button randomly
             const x = Math.random() * (window.innerWidth - button.clientWidth);
             const y = Math.random() * (window.innerHeight - button.clientHeight);
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
-            button.style.transform = 'none';
         });
     </script>
 </body>
