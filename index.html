@@ -146,7 +146,14 @@
 
         button.addEventListener('click', function() {
             button.style.transform = 'translate(-50%, -50%) scale(0.9)';
-            setTimeout(() => button.style.transform = 'translate(-50%, -50%) scale(1)', 150);
+            setTimeout(() => {
+                // Reset the transform scale after the click animation.
+                button.style.transform = 'translate(-50%, -50%) scale(1)';
+
+                // Randomly set the position of the button after it's clicked.
+                button.style.left = `${Math.random() * 80 + 10}%`;  // between 10% to 90% of screen width
+                button.style.top = `${Math.random() * 80 + 10}%`;   // between 10% to 90% of screen height
+            }, 150);
             createStar();
 
             if (messageIndex >= messages.length) {
