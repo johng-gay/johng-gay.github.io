@@ -79,23 +79,17 @@
         /* Define the star animation */
         @keyframes star-fade {
             0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0); }
-        }
-
-        /* Define the star explode animation */
-        @keyframes star-explode {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(2); }
+            100% { opacity: 0; transform: scale(10); }
         }
 
         .star {
             position: absolute;
-            width: 4px;
-            height: 4px;
+            width: 40px; /* 10 times bigger than the original size */
+            height: 40px; /* 10 times bigger than the original size */
             background-color: white;
             border-radius: 50%;
             opacity: 0;
-            animation: star-fade 1s ease-out, star-explode 1s ease-out;
+            animation: star-fade 1s ease-out;
         }
     </style>
 </head>
@@ -143,8 +137,8 @@
             for (let i = 0; i < 10; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                star.style.left = button.getBoundingClientRect().left + 'px';
-                star.style.top = button.getBoundingClientRect().top + 'px';
+                star.style.left = Math.random() * window.innerWidth + 'px';
+                star.style.top = Math.random() * window.innerHeight + 'px';
                 starContainer.appendChild(star);
                 setTimeout(() => {
                     star.remove();
