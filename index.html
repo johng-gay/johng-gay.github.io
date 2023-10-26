@@ -35,18 +35,35 @@
 
         /* Font size adjustment for mobile screens */
         @media screen and (max-width: 768px) {
-            h1 {
+            .container h1 {
                 font-size: 4em; /* Adjust the font size for h1 on mobile screens */
             }
 
-            h2 {
+            .container h2 {
                 font-size: 2em; /* Adjust the font size for h2 on mobile screens */
+            }
+
+            .container .message {
+                font-size: 2em; /* Adjust the font size for .message on mobile screens */
+            }
+        }
+
+/*
+         Font size adjustment for mobile screens
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 4em; /* Adjust the font size for h1 on mobile screens *
+            }
+
+            h2 {
+                font-size: 2em; /* Adjust the font size for h2 on mobile screens *
             }
 
             .message {
                 font-size: 2em;
             }
         }
+        */
 
         #TheButton {
             padding: 10px 20px;
@@ -66,7 +83,7 @@
 
         .message {
             font-size: 1em;
-            color: #black;
+            color: black;
             text-align: center;
             margin-top: 1em;
             display: none;
